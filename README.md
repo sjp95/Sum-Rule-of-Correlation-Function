@@ -7,7 +7,7 @@ This repository contains C++ and Python implementations for calculating one- and
 In 1D Kitaev chains, the Hamiltonian is
 
 $$
-H_{\text{Kitaev}} = \sum_{i\,\in\,\mathrm{even}} \big( S_i^x S_{i+1}^x    \big)
+H_{\text{Kitaev}} = \sum_{i\,\in\,\mathrm{even}} \big( J_xS_i^x S_{i+1}^x +J_yS_{i+1}^y S_{i+2}^2    \big) + h\sum_i S^z
 $$
 
 Unlike the Heisenberg model, total $S^z$ does not commute with $H_{\text{Kitaev}}$, so the ground state contains contributions from all $S_{\text{Tot}}^z$ sectors.
