@@ -1,0 +1,12 @@
+*.sge
+t0
+h
+*.txt
+*.pdf
+*.png
+*.key
+*.job
+*.dat
+*.h5
+eta*
+.DS_Store
