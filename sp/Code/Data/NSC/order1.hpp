@@ -24,11 +24,11 @@ void NSC_input::order1_data()
 {
    //---------------------------------------------------------------------------------------------
     char title10[150];
-    sprintf(title10,"../Data/NSC/SZiSZj/SZiSZj_%d_%d_%d_%d_%d_%d_%d_%d.dat",N,jjt0,jjt1,ttt0,ttt1,N/2,N/2,hz); //| ==== Name | I; 
+    sprintf(title10,"../Data/NSC/SZiSZj/SZiSZj_%d_%d_%d_%d_%d_%d.dat",N,jjt0,jjt1,N/2,N/2,hz); //| ==== Name | I; 
+                                         
     std::ifstream file00;               //| ==== File | L
     file00.open(title10);                //| ==== Open | E
     //---------------------------------------------------------------------------------------------
-
     //---------------------------------------------------------------------------------------------
     vector<complex<double>> data;
     //vector<complex<double>> data1;
@@ -51,7 +51,7 @@ void NSC_input::order1_data()
          data.push_back(data0);
          i0.push_back(i2);
          j0.push_back(i1);
-         //cout<<f1<<"    "<<data0 <<endl;
+         cout<<f1<<"    "<<data0 <<endl;
       }
       //---------------------------------------------------------------------------------------------
     }
@@ -60,7 +60,7 @@ void NSC_input::order1_data()
     //======================================================================================================//
     //======================================================================================================//
     int flag=0;
-    // omp_set_num_threads(4);
+    // omp_set_num_threads(8);
     // #pragma omp parallel for
     for (int ff = 0; ff <=N; ff++)
     if(flag==0)
@@ -80,7 +80,7 @@ void NSC_input::order1_data()
         //---------------------------------------------------------------------------------------------------------------------
         //---------------------------------------------------------------------------------------------------------------------
         //cout<< ff <<" "<<nCr(N,nup+1)*nCr(N-nup-1,ndown-1)<<endl;
-        for (int jj = N/2-1; jj <= N/2+2; jj++)
+        for (int jj = N/2; jj <= N/2+1; jj++)
         for (int ii = 1; ii <= N; ii++)
         { 
           if(ii!=N/2 || jj!=N/2)
@@ -88,7 +88,7 @@ void NSC_input::order1_data()
             //----------------------------------------------------------------------------------------------------------------
             //----------------------------------------------------------------------------------------------------------------
             char title1[150];
-            sprintf(title1,"../Data/NSC/SZiSZj/SZiSZj_%d_%d_%d_%d_%d_%d_%d_%d.dat",N,jjt0,jjt1,ttt0,ttt1,ii,jj,hz); //| ==== Name | I;  
+            sprintf(title1,"../Data/NSC/SZiSZj/SZiSZj_%d_%d_%d_%d_%d_%d.dat",N,jjt0,jjt1,ii,jj,hz); //| ==== Name | I;  
             std::ifstream file;               //| ==== File | L
             file.open(title1);                //| ==== Open | E
             //----------------------------------------------------------------------------------------------------------------
@@ -156,8 +156,7 @@ void NSC_input::order1_data()
         for (int i = 0; i < T.size(); i++)
         {
           //file0<< T[i] << "   " << data[i].real()/sqrt(N)<< "   " << data[i].imag()/sqrt(N) << "   " << q << endl;
-          double N0=double(N/2);
-          file0<< T[i] << "   " << N0*data11[i]/sqrt(N)<< "    " << q << endl;
+          file0<< T[i] << "   " << data11[i]/sqrt(N*2)<< "    " << q << endl;
         }
         file0.close();
     }

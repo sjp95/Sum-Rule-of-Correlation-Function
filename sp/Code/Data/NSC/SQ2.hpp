@@ -15,7 +15,7 @@
 // #include "fftShift.hpp"
 
 using namespace std;
-using namespace Eigen;
+//using namespace Eigen;
 
 void NSC_input::Sq2()
 {

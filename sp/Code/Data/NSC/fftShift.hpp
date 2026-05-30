@@ -8,7 +8,7 @@
 #include <omp.h>
 #include <vector>
 #include "input.hpp"
-#include <fftw3.h>
+//#include <fftw3.h>
 
 using namespace std;
 using namespace Eigen;

@@ -1,28 +1,25 @@
 #!/bin/bash
-#sub=job.sge
-#module load gcc-7.5.0
-#module load compilers/gcc/9.2.0
-OMP_NUM_THREADS=4
-export OMP_NUM_THREADS
+mkdir -p build
 
-#g++ -std=c++11 D.cpp -lfftw3 -o h -fopenmp
-g++ -std=c++11 D.cpp -o h -I/usr/local/opt/libomp/include -L/usr/local/opt/libomp/lib -Xpreprocessor -fopenmp -lomp
-# //./h 12 5 5 -100 -10 100 10 c 
-for N in 30 60 90 120
+cmake -S . -B build
+cmake --build build -j$(nproc)
+#!/bin/bash
+
+export OMP_NUM_THREADS=8
+
+for N in 30 #60 90 120
 do
-for hz in 50
-do
-for eta in 1 2 3 4 5
-do
-  for A in 0 # 1 2
+  for hz in 0 #400.0
   do
-    ./h $N 0 0 100 100 100 100 $eta $A $hz
+    for eta in 2 #3 4 5
+    do
+      for A in 0
+      do
+        ./build/h $N 0 0 100 100 100 100 $eta $A $hz
+      done
+    done
   done
 done
-done
-done
-
-
 #=========================================================================================#
 #=========================================================================================#
 # for t0 in 100 

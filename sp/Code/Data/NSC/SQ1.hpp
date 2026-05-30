@@ -5,7 +5,7 @@
 #include <cmath>
 #include <math.h> 
 #include <complex>
-#include <Eigen/Dense>
+//#include <Eigen/Dense>
 #include <fstream>
 #include <omp.h>
 #include <vector>
@@ -15,7 +15,7 @@
 // #include "fftShift.hpp"
 
 using namespace std;
-using namespace Eigen;
+//using namespace Eigen;
 
 void NSC_input::Sq1()
 {
