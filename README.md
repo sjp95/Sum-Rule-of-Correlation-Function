@@ -63,3 +63,13 @@ The Python scripts provide exact solutions used to benchmark DMRG results.
 1. Run the C++ DMRG binary to generate raw time-domain correlation data.
 2. Use the Python scripts to perform Fourier transforms and apply broadening $\eta$.
 3. Compare the numerical sum rule $\sum \Xi_2^{\alpha,\beta}$ against the analytical value $N$ to verify accuracy.
+
+## Third-party dependencies
+
+This project vendors the following open-source libraries:
+
+- HighFive (BSD-3-Clause)
+  https://github.com/BlueBrain/HighFive.git
+
+- Eigen (MPL 2.0)
+  https://eigen.tuxfamily.org
